@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.MovieItem;
-import ru.netology.manager.MovieManager;
 
 public class MovieManagerTest {
     @Test
