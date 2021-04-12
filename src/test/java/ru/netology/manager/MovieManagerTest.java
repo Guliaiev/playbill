@@ -2,7 +2,7 @@ package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
 import ru.netology.domain.MovieItem;
-import ru.netology.manager.MovieManager;
+
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 

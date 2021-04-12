@@ -1,7 +1,11 @@
 package ru.netology.manager;
 
 import ru.netology.domain.MovieItem;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+@NoArgsConstructor
+@Data
 public class MovieManager {
     private MovieItem[] items = new MovieItem[0];
     int defaultCount = 10;
@@ -34,5 +38,17 @@ public class MovieManager {
             outPut[i] = result[i];
         }
         return outPut;
+    }
+    public void removeByMovieId(int id) {
+        int length = items.length - 1;
+        MovieItem[] tmp = new MovieItem[length];
+        int index = 0;
+        for (MovieItem item : items) {
+            if (item.getMovieId() != id) {
+                tmp[index] = item;
+                index++;
+            }
+        }
+                items = tmp;
     }
 }
