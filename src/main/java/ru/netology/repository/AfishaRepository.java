@@ -1,6 +1,7 @@
 package ru.netology.repository;
 import ru.netology.domain.MovieItem;
 public class AfishaRepository {
+
     private MovieItem[] items = new MovieItem[0];
 
     public MovieItem[] findAll() {
@@ -34,11 +35,11 @@ public class AfishaRepository {
                 return item;
             }
         }
-                return null;
-            }
-            public MovieItem[]removeAll(){
+        return null;
+    }
+    public MovieItem[]removeAll(){
         items = new MovieItem[0];
         return items;
-            }
-
     }
+
+}
