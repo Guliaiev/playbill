@@ -9,6 +9,15 @@ import lombok.NoArgsConstructor;
 public class MovieManager {
     private MovieItem[] items = new MovieItem[0];
     int defaultCount = 10;
+    private  int count;
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public MovieManager(int count) {
+        this.count = count;
+    }
 
     public void add(MovieItem item) {
         int length = items.length + 1;
@@ -39,16 +48,16 @@ public class MovieManager {
         }
         return outPut;
     }
-    public void removeByMovieId(int id) {
-        int length = items.length - 1;
-        MovieItem[] tmp = new MovieItem[length];
-        int index = 0;
-        for (MovieItem item : items) {
-            if (item.getMovieId() != id) {
-                tmp[index] = item;
-                index++;
-            }
-        }
-                items = tmp;
-    }
+   // public void removeByMovieId(int id) {
+    //    int length = items.length - 1;
+      //  MovieItem[] tmp = new MovieItem[length];
+     //   int index = 0;
+      //  for (MovieItem item : items) {
+       //     if (item.getMovieId() != id) {
+         //       tmp[index] = item;
+        //        index++;
+        //    }
+       // }
+         //       items = tmp;
+   // }
 }
