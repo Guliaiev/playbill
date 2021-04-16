@@ -28,36 +28,30 @@ public class MovieManager {
         items = tmp;
     }
 
-    public MovieItem[] getAll(int movieListLimit) {
-        MovieItem[] result = new MovieItem[items.length];
-        if (movieListLimit > defaultCount) {
-            movieListLimit = defaultCount;
+    public MovieItem[] getAll() {
+                MovieItem[] result = new MovieItem[0];
+        if (count == 0 && items.length <= defaultCount) {
+            result = new MovieItem[items.length];
+            for (int i = 0; i < result.length; i++) {
+                int index = items.length - i - 1;
+                result[i] = items[index];
+            }
         }
-        if (movieListLimit > result.length) {
-            movieListLimit = result.length;
+        if (count == 0 && items.length >= defaultCount) {
+            result = new MovieItem[10];
+            for (int i = 0; i < result.length; i++) {
+                int index = items.length - i - 1;
+                result[i] =items[index];
+            }
         }
-        int movieListStart = result.length - movieListLimit;
-        for (int i = 0; i < movieListLimit; i++) {
-            int index = items.length - i - 1;
-            result[i] = items[index];
+        if (count != 0) {
+            result = new MovieItem[count];
+            for (int i = 0; i < result.length; i++) {
+                int index = items.length - i - 1;
+                result[i] = items[index];
+            }
         }
-        MovieItem[] outPut = new MovieItem[movieListLimit];
-        System.arraycopy(result, 0, outPut, 0, movieListLimit);
-        for (int i = 0; i < movieListLimit; i++) {
-            outPut[i] = result[i];
-        }
-        return outPut;
+        return result;
     }
-   // public void removeByMovieId(int id) {
-    //    int length = items.length - 1;
-      //  MovieItem[] tmp = new MovieItem[length];
-     //   int index = 0;
-      //  for (MovieItem item : items) {
-       //     if (item.getMovieId() != id) {
-         //       tmp[index] = item;
-        //        index++;
-        //    }
-       // }
-         //       items = tmp;
-   // }
+
 }
