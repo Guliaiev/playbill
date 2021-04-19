@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 public class MovieManager {
     private MovieItem[] items = new MovieItem[0];
     int defaultCount = 10;
-    private  int count;
+    private int count;
 
     public void setCount(int count) {
         this.count = count;
@@ -29,7 +29,7 @@ public class MovieManager {
     }
 
     public MovieItem[] getAll() {
-                MovieItem[] result = new MovieItem[0];
+        MovieItem[] result = new MovieItem[0];
         if (count == 0 && items.length <= defaultCount) {
             result = new MovieItem[items.length];
             for (int i = 0; i < result.length; i++) {
@@ -41,7 +41,7 @@ public class MovieManager {
             result = new MovieItem[10];
             for (int i = 0; i < result.length; i++) {
                 int index = items.length - i - 1;
-                result[i] =items[index];
+                result[i] = items[index];
             }
         }
         if (count != 0) {

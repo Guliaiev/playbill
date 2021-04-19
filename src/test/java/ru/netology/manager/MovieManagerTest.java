@@ -27,7 +27,70 @@ public class MovieManagerTest {
     }
 
     @Test
-    public void getAllLimitOverArrayTest() {
+    void addThenMovie() {
+        MovieManager manager = new MovieManager();
+        MovieItem first = new MovieItem(1, "first", "film.com/1", 1);
+        MovieItem second = new MovieItem(2, "second", "film.com/2", 2);
+        MovieItem third = new MovieItem(3, "third", "film.com/3", 1);
+        MovieItem fourth = new MovieItem(4, "fourth", "film.com/4", 1);
+        MovieItem fifth = new MovieItem(5, "fifth", "film.com/5", 1);
+        MovieItem sixth = new MovieItem(6, "sixth", "film.com/6", 1);
+        MovieItem seventh = new MovieItem(7, "first", "film.com/7", 1);
+        MovieItem eighth = new MovieItem(8, "second", "film.com/8", 2);
+        MovieItem ninth = new MovieItem(9, "third", "film.com/9", 1);
+        MovieItem tenth = new MovieItem(10, "fourth", "film.com/4", 1);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
+        manager.add(tenth);
+        manager.getAll();
+        MovieItem[] actual = manager.getAll();
+        MovieItem[] expected = new MovieItem[]{tenth, ninth, eighth, seventh, sixth, fifth, fourth, third, second, first};
+        assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void addMoreThenMovie() {
+        MovieManager manager = new MovieManager();
+        MovieItem first = new MovieItem(1, "first", "film.com/1", 1);
+        MovieItem second = new MovieItem(2, "second", "film.com/2", 2);
+        MovieItem third = new MovieItem(3, "third", "film.com/3", 1);
+        MovieItem fourth = new MovieItem(4, "fourth", "film.com/4", 1);
+        MovieItem fifth = new MovieItem(5, "fifth", "film.com/5", 1);
+        MovieItem sixth = new MovieItem(6, "sixth", "film.com/6", 1);
+        MovieItem seventh = new MovieItem(7, "first", "film.com/7", 1);
+        MovieItem eighth = new MovieItem(8, "second", "film.com/8", 2);
+        MovieItem ninth = new MovieItem(9, "third", "film.com/9", 1);
+        MovieItem tenth = new MovieItem(10, "fourth", "film.com/4", 1);
+        MovieItem eleventh = new MovieItem(11, "fifth", "film.com/5", 1);
+        MovieItem twelfth = new MovieItem(12, "sixth", "film.com/12", 1);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seventh);
+        manager.add(eighth);
+        manager.add(ninth);
+        manager.add(tenth);
+        manager.add(eleventh);
+        manager.add(twelfth);
+        MovieItem[] actual = manager.getAll();
+        MovieItem[] expected = new MovieItem[]{twelfth, eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third};
+        assertArrayEquals(expected, actual);
+
+    }
+
+    @Test
+    public void addLessThenMovie() {
         MovieManager manager = new MovieManager();
         MovieItem first = new MovieItem(1, "first", "film.com/2", 1);
         MovieItem second = new MovieItem(2, "second", "film.com/2", 2);
@@ -71,8 +134,8 @@ public class MovieManagerTest {
     }
 
     @Test
-    public void getAllLimitOver10ItemsTest() {
-        MovieManager manager = new MovieManager();
+    void shouldUseNoAgsConstructor() {
+        movieManager.setCount(5);
         MovieItem first = new MovieItem(1, "first", "film.com/1", 1);
         MovieItem second = new MovieItem(2, "second", "film.com/2", 2);
         MovieItem third = new MovieItem(3, "third", "film.com/3", 1);
@@ -85,20 +148,20 @@ public class MovieManagerTest {
         MovieItem tenth = new MovieItem(10, "fourth", "film.com/4", 1);
         MovieItem eleventh = new MovieItem(11, "fifth", "film.com/5", 1);
         MovieItem twelfth = new MovieItem(12, "sixth", "film.com/12", 1);
-        manager.add(first);
-        manager.add(second);
-        manager.add(third);
-        manager.add(fourth);
-        manager.add(fifth);
-        manager.add(sixth);
-        manager.add(seventh);
-        manager.add(eighth);
-        manager.add(ninth);
-        manager.add(tenth);
-        manager.add(eleventh);
-        manager.add(twelfth);
-        MovieItem[] actual = manager.getAll();
-        MovieItem[] expected = new MovieItem[]{twelfth, eleventh, tenth, ninth, eighth, seventh, sixth, fifth, fourth, third};
+        movieManager.add(first);
+        movieManager.add(second);
+        movieManager.add(third);
+        movieManager.add(fourth);
+        movieManager.add(fifth);
+        movieManager.add(sixth);
+        movieManager.add(seventh);
+        movieManager.add(eighth);
+        movieManager.add(ninth);
+        movieManager.add(tenth);
+        movieManager.add(eleventh);
+        movieManager.add(twelfth);
+        MovieItem[] actual = movieManager.getAll();
+        MovieItem[] expected = new MovieItem[]{twelfth, eleventh, tenth, ninth, eighth};
         assertArrayEquals(expected, actual);
 
     }
