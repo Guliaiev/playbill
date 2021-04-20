@@ -132,7 +132,34 @@ public class MovieManagerTest {
         MovieItem[] expected = new MovieItem[]{then, nine, eight, seven, sixth, fifth};
         assertArrayEquals(expected, actual);
     }
-
+    @Test
+    public void shouldGetMoreMovie() {
+        MovieManager manager = new MovieManager(11);
+        MovieItem first = new MovieItem(1, "first", "film.com/1", 1);
+        MovieItem second = new MovieItem(2, "second", "film.com/2", 2);
+        MovieItem third = new MovieItem(3, "third", "film.com/3", 1);
+        MovieItem fourth = new MovieItem(4, "fourth", "film.com/4", 1);
+        MovieItem fifth = new MovieItem(5, "fifth", "film.com/5", 1);
+        MovieItem sixth = new MovieItem(6, "sixth", "film.com/6", 1);
+        MovieItem seven = new MovieItem(7, "third", "film.com/3", 1);
+        MovieItem eight = new MovieItem(8, "eight", "film.com/4", 1);
+        MovieItem nine = new MovieItem(9, "nine", "film.com/5", 1);
+        MovieItem then = new MovieItem(10, "then", "film.com/6", 1);
+        manager.add(first);
+        manager.add(second);
+        manager.add(third);
+        manager.add(fourth);
+        manager.add(fifth);
+        manager.add(sixth);
+        manager.add(seven);
+        manager.add(eight);
+        manager.add(nine);
+        manager.add(then);
+        manager.getAll();
+        MovieItem[] actual = manager.getAll();
+        MovieItem[] expected = new MovieItem[]{then, nine, eight, seven, sixth, fifth, fourth, third, second, first};
+        assertArrayEquals(expected, actual);
+    }
     @Test
     void shouldUseNoAgsConstructor() {
         movieManager.setCount(5);
